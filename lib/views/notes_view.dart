@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/widgets/custom_icon.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+      title: const Text('Notes'), 
+      toolbarHeight: 100,
+      actions: [CustomIconButton()],
+      ),
+      body: NotesView(),
+    );
   }
 }
+
