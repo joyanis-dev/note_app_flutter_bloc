@@ -15,14 +15,14 @@ class AddNoteFAB extends StatelessWidget {
         showModalBottomSheet(
           context: context,
           builder: (context) {
-            return Container(
-              padding: const EdgeInsets.all(25),
+            return SingleChildScrollView(
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: [
                   CustomTextField(labelText: 'Note Title'),
                   const SizedBox(height: 20),
                   CustomTextField(maxLines: 5, labelText: 'Note Content'),
-                  const SizedBox(height: 100),
+                  const SizedBox(height: 80),
                   CustomButton(
                     onPressed: () {
                       // Add your action here
