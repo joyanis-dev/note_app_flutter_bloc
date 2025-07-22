@@ -10,7 +10,7 @@ class NotesView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
       title: const Text('Notes'), 
-      toolbarHeight: 100,
+      toolbarHeight: 70,
       actions: [CustomIconButton()],
       ),
       body: NotesBody(),

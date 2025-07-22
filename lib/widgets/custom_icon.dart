@@ -8,12 +8,13 @@ class CustomIconButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Container(
+        padding: EdgeInsets.zero,
         decoration: BoxDecoration(
           color: Colors.white.withValues( alpha: 0.2),
-          borderRadius: BorderRadius.circular(10)
+          borderRadius: BorderRadius.circular(13)
         ),
         child: IconButton(
-          icon: const Icon(Icons.search),
+          icon: const Icon(Icons.search,size: 30,),
           onPressed: () {
             // Add your action here
           },
