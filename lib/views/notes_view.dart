@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/widgets/custom_appbar.dart';
 import 'package:notes_app/widgets/custom_icon.dart';
 import 'package:notes_app/widgets/floating_action_button.dart';
 import 'package:notes_app/widgets/notes_body.dart';
@@ -10,14 +11,11 @@ class NotesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: AddNoteFAB(),
-      appBar: AppBar(
-        title: const Text('Notes'),
-        toolbarHeight: 70,
-        actions: [CustomIconButton()],
+      appBar: CustomAppBar(
+        title: 'Notes',
+        actions: [CustomIconButton(icon: Icons.search)],
       ),
       body: NotesBody(),
     );
   }
 }
-
-

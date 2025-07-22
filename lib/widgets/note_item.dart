@@ -1,29 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/constants/app_textstyles.dart';
+import 'package:notes_app/views/editing_notes_view.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: Container(
-        padding: const EdgeInsets.only(
-          left: 20,
-          right: 10,
-          top: 10,
-          bottom: 20,
-        ),
-           decoration: BoxDecoration(
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const EditingNotesView()),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: Container(
+          padding: const EdgeInsets.only(
+            left: 20,
+            right: 10,
+            top: 10,
+            bottom: 20,
+          ),
+          decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: const Color(0xffFFCC80),
           ),
-          child:  Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
-           
+
             children: [
-               ListTile(
+              ListTile(
                 contentPadding: EdgeInsets.all(0),
                 title: Text('Note Title', style: AppTextStyles.heading),
                 subtitle: Padding(
@@ -36,9 +44,7 @@ class NoteItem extends StatelessWidget {
                 trailing: IconButton(
                   padding: EdgeInsets.zero,
                   icon: const Icon(Icons.delete, color: Colors.black, size: 30),
-                  onPressed: () {
-                   
-                  },
+                  onPressed: () {},
                 ),
               ),
               const SizedBox(height: 10),
@@ -48,6 +54,7 @@ class NoteItem extends StatelessWidget {
               ),
             ],
           ),
+        ),
       ),
     );
   }

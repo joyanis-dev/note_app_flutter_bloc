@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomIconButton extends StatelessWidget {
-  const CustomIconButton({super.key});
-
+  const CustomIconButton({super.key , required this.icon});
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,7 +14,7 @@ class CustomIconButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(13)
         ),
         child: IconButton(
-          icon: const Icon(Icons.search,size: 30,),
+          icon: Icon(icon, size: 25),
           onPressed: () {
             // Add your action here
           },
