@@ -15,27 +15,38 @@ class AddNoteFAB extends StatelessWidget {
         showModalBottomSheet(
           context: context,
           builder: (context) {
-            return SingleChildScrollView(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                children: [
-                  CustomTextField(labelText: 'Note Title'),
-                  const SizedBox(height: 20),
-                  CustomTextField(maxLines: 5, labelText: 'Note Content'),
-                  const SizedBox(height: 80),
-                  CustomButton(
-                    onPressed: () {
-                      // Add your action here
-                      Navigator.pop(context); // Close the bottom sheet
-                    },
-                  ),
-                ],
-              ),
-            );
+            return AddNoteBottomSheet();
           },
         );
       },
       child: const Icon(Icons.add),
+    );
+  }
+}
+
+class AddNoteBottomSheet extends StatelessWidget {
+  const AddNoteBottomSheet({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        children: [
+          CustomTextField(labelText: 'Note Title'),
+          const SizedBox(height: 20),
+          CustomTextField(maxLines: 5, labelText: 'Note Content'),
+          const SizedBox(height: 80),
+          CustomButton(
+            onPressed: () {
+              
+              Navigator.pop(context); // Close the bottom sheet
+            },
+          ),
+        ],
+      ),
     );
   }
 }
