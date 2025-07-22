@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/widgets/custom_icon.dart';
+import 'package:notes_app/widgets/notes_body.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
@@ -12,7 +13,7 @@ class NotesView extends StatelessWidget {
       toolbarHeight: 100,
       actions: [CustomIconButton()],
       ),
-      body: NotesView(),
+      body: NotesBody(),
     );
   }
 }
