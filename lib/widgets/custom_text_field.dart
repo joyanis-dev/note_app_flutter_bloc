@@ -7,12 +7,22 @@ class CustomTextField extends StatelessWidget {
     super.key,
     this.maxLines = 1,
     required this.labelText,
+    this.onSaved,
+    
   });
   final int maxLines;
   final String labelText;
+  final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+       validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter $labelText';
+        }
+        return null;
+      },
+      onSaved: onSaved,
       maxLines: maxLines,
       decoration: InputDecoration(
         labelText: labelText,
