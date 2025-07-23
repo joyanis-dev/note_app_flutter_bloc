@@ -15,6 +15,7 @@ class AddNoteBottomSheet extends StatefulWidget {
 
 class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   String? title;
   String? content;
@@ -26,23 +27,28 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
           Navigator.pop(context);
         }
       },
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.all(20.0),
-        
-        child: Column(
-          children: [
-            CustomTextField(labelText: 'Note Title',
-            onSaved: (value) => title = value,
-            
-            ),
-            const SizedBox(height: 20),
-            CustomTextField(maxLines: 5, labelText: 'Note Content',
-            onSaved: (value) => content = value,
-            ),
-            const SizedBox(height: 80),
-            CustomButton(
-              onPressed: () {
-                 if (formKey.currentState!.validate()) {
+      child: Form(
+        key: formKey,
+        autovalidateMode: autovalidateMode,
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20.0),
+
+          child: Column(
+            children: [
+              CustomTextField(
+                labelText: 'Note Title',
+                onSaved: (value) => title = value,
+              ),
+              const SizedBox(height: 20),
+              CustomTextField(
+                maxLines: 5,
+                labelText: 'Note Content',
+                onSaved: (value) => content = value,
+              ),
+              const SizedBox(height: 80),
+              CustomButton(
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
 
                     final note = NoteModel(
@@ -54,9 +60,10 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
 
                     BlocProvider.of<AddNoteCubit>(context).addNote(note);
                   }
-              },
-            ),
-          ],
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
