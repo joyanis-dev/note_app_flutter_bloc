@@ -15,7 +15,9 @@ class EditingNotesView extends StatelessWidget {
         title: 'Edit Note',
         actions: [CustomIconButton(icon: Icons.check)],
       ),
-      body: EditingBody(),
+      body: EditingBody(
+        note: note,
+      ),
     );
   }
 }

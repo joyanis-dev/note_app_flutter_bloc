@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+
+class NoteItemColor extends StatelessWidget {
+  final Color color;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const NoteItemColor({
+    super.key,
+    required this.color,
+    this.isSelected = false,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: CircleAvatar(
+        radius: isSelected ? 22 : 20,
+        backgroundColor: color,
+        child: isSelected
+            ? const Icon(Icons.check, color: Colors.white)
+            : null,
+      ),
+    );
+  }
+}

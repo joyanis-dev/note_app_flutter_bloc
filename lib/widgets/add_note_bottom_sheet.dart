@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:notes_app/constants/app_constants.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_states.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
@@ -52,12 +53,12 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-
+                  final randomColor = noteColors[DateTime.now().millisecondsSinceEpoch % noteColors.length];
                     final note = NoteModel(
                       title: title!,
                       content: content!,
                       date: DateFormat('dd-MM-yyyy').format(DateTime.now()),
-                      color: Colors.amber.value,
+                      color: randomColor.toARGB32(),
                     );
 
                     BlocProvider.of<AddNoteCubit>(context).addNote(note);
