@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/constants/app_textstyles.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/editing_notes_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
-
+  const NoteItem({super.key, required this.note});
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const EditingNotesView()),
+          MaterialPageRoute(builder: (context) => EditingNotesView(note: note)),
         );
       },
       child: Padding(
@@ -33,24 +36,24 @@ class NoteItem extends StatelessWidget {
             children: [
               ListTile(
                 contentPadding: EdgeInsets.all(0),
-                title: Text('Note Title', style: AppTextStyles.heading),
+                title: Text(note.title, style: AppTextStyles.heading),
                 subtitle: Padding(
                   padding: const EdgeInsets.only(top: 16),
-                  child: Text(
-                    'Note content goes here',
-                    style: AppTextStyles.bodyText,
-                  ),
+                  child: Text(note.content, style: AppTextStyles.bodyText),
                 ),
                 trailing: IconButton(
                   padding: EdgeInsets.zero,
                   icon: const Icon(Icons.delete, color: Colors.black, size: 30),
-                  onPressed: () {},
+                  onPressed: () {
+                    note.delete(); 
+                    BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+                  },
                 ),
               ),
               const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.only(right: 10),
-                child: Text('2/2/2020', style: AppTextStyles.dateText),
+                child: Text(note.date, style: AppTextStyles.dateText),
               ),
             ],
           ),
