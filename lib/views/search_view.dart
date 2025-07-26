@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
-import 'package:notes_app/cubits/notes_cubit/notes_states.dart';
-import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_appbar.dart';
 import 'package:notes_app/widgets/custom_icon.dart';
-import 'package:notes_app/widgets/custom_search_textfield.dart';
-import 'package:notes_app/widgets/note_item.dart';
+import 'package:notes_app/widgets/search_body.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -42,49 +39,22 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    
-      appBar: CustomAppBar(title: 'Search Notes',
-      actions: [
-        CustomIconButton(icon: Icons.close,
-        onPressed: () {
-       Navigator.pop(context);
-        },
-        )
-      ],
+      appBar: CustomAppBar(
+        title: 'Search Notes',
+        actions: [
+          CustomIconButton(
+            icon: Icons.close,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            CustomSearchField(onChanged:_onSearchChanged,
-            controller: _controller,
-             ),
-            const SizedBox(height: 16),
-            Expanded(
-              child: BlocBuilder<NotesCubit, NotesState>(
-                builder: (context, state) {
-                  if (state is NotesSuccess) {
-                    final List<NoteModel> notes = state.notes;
-
-                    if (_lastQuery.trim().isNotEmpty && notes.isEmpty) {
-                      return const Center(child: Text('No Notes Found'));
-                    }
-
-                    return ListView.builder(
-                      itemCount: notes.length,
-                      itemBuilder: (context, index) {
-                        return NoteItem(note: notes[index]);
-                      },
-                    );
-                  }
-
-                  return const Center(child: CircularProgressIndicator());
-                },
-              ),
-            ),
-          ],
-        ),
+      body: SearchBody(lastQuery: _lastQuery,
+      controller: _controller,
+      onChanged:_onSearchChanged,
       ),
     );
   }
 }
+

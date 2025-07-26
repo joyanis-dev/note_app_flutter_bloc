@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/constants/assets.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_states.dart';
 import 'package:notes_app/widgets/empty_notes_body.dart';
@@ -15,7 +16,10 @@ class NotesListView extends StatelessWidget {
         if (state is NotesSuccess) {
           final notes = state.notes;
           if (notes.isEmpty) {
-            return const EmptyNotesWidget();
+            return const EmptyNotesWidget(
+              imagePath: Assets.assetsUndraw,
+              message: 'Create Your First Note!',
+            );
           }
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),

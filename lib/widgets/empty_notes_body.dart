@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/constants/assets.dart';
+
 
 class EmptyNotesWidget extends StatelessWidget {
   const EmptyNotesWidget({
     super.key,
+   required this.imagePath,
+    required this.message,
   });
 
+  final String imagePath; 
+  final String message; 
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -14,14 +18,14 @@ class EmptyNotesWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            Assets.assetsUndraw,
+            imagePath,
             width: 200,
             height: 200,
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
           ),
           const SizedBox(height: 5),
-          const Text(
-            'Welcome to Notes App',
+           Text(
+           message,
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
         ],
