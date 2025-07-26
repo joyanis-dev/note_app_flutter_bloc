@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/views/search_view.dart';
 import 'package:notes_app/widgets/custom_appbar.dart';
 import 'package:notes_app/widgets/custom_icon.dart';
 import 'package:notes_app/widgets/floating_action_button.dart';
@@ -17,7 +18,12 @@ class NotesView extends StatelessWidget {
       appBar: CustomAppBar(
         title: 'Notes',
         actions: [
-          CustomIconButton(icon: Icons.search),
+          CustomIconButton(icon: Icons.search,onPressed: (){
+            Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) =>SearchPage()),
+        );
+          }),
           Builder(
             builder: (context) => CustomIconButton(
               icon: Icons.settings,

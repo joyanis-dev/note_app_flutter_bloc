@@ -45,7 +45,7 @@ class NoteItem extends StatelessWidget {
                   padding: EdgeInsets.zero,
                   icon: const Icon(Icons.delete, color: Colors.black, size: 30),
                   onPressed: () {
-                    note.delete(); 
+                    note.delete();
                     BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                   },
                 ),

@@ -14,5 +14,20 @@ class NotesCubit extends Cubit<NotesState> {
     emit(NotesSuccess(box.values.toList()));
   }
 
-  
+  void searchNotes(String keyword) {
+    if (keyword.trim().isEmpty) {
+      emit(NotesSuccess(allNotes));
+      return;
+    }
+
+    final results = allNotes
+        .where(
+          (note) =>
+              note.title.toLowerCase().contains(keyword.toLowerCase()) ||
+              note.content.toLowerCase().contains(keyword.toLowerCase()),
+        )
+        .toList();
+
+    emit(NotesSuccess(results));
+  }
 }
