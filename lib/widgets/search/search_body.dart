@@ -4,9 +4,9 @@ import 'package:notes_app/constants/assets.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_states.dart';
 import 'package:notes_app/models/note_model.dart';
-import 'package:notes_app/widgets/custom_search_textfield.dart';
-import 'package:notes_app/widgets/empty_notes_body.dart';
-import 'package:notes_app/widgets/note_item.dart';
+import 'package:notes_app/widgets/search/custom_search_textfield.dart';
+import 'package:notes_app/widgets/note/empty_notes_body.dart';
+import 'package:notes_app/widgets/note/note_item.dart';
 
 class SearchBody extends StatelessWidget {
   const SearchBody({

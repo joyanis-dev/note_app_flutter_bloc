@@ -9,6 +9,7 @@ class CustomTextField extends StatelessWidget {
     this.onSaved,
     this.onChanged,
     this.initialValue,
+    this.validator 
   });
 
   final int maxLines;
@@ -16,17 +17,13 @@ class CustomTextField extends StatelessWidget {
   final void Function(String?)? onSaved;
   final void Function(String)? onChanged;
   final String? initialValue;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       initialValue: initialValue,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Please enter $labelText';
-        }
-        return null;
-      },
+      validator: validator,
       onChanged: onChanged,
       onSaved: onSaved,
       maxLines: maxLines,
@@ -37,9 +34,7 @@ class CustomTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.0),
           borderSide: const BorderSide(color: kPrimaryColor),
         ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.0),
-        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
       ),
     );
   }

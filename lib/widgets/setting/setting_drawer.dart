@@ -6,7 +6,6 @@ import 'package:notes_app/cubits/theme_cubit/theme_cubit.dart';
 class SettingDrawer extends StatelessWidget {
   const SettingDrawer({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     final isDark = context.watch<ThemeCubit>().isDark;
@@ -29,6 +28,30 @@ class SettingDrawer extends StatelessWidget {
               Navigator.of(context).pop();
               context.read<ThemeCubit>().toggleTheme();
             },
+          ),
+          ListTile(
+            leading: Icon(Icons.info),
+            title: Text('About App'),
+            onTap: () {},
+          ),
+          Divider(
+            color: Colors.grey,
+            thickness: 1,
+            height: 20,
+            indent: 16,
+            endIndent: 16,
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+
+            child: Text(
+              'Write what should not be forgotten.',
+              style: TextStyle(
+                fontSize: 14,
+                color: Theme.of(context).hintColor,
+              ),
+            ),
           ),
         ],
       ),

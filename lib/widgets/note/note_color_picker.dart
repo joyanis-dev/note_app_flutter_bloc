@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/note_item_color';
+import 'package:notes_app/widgets/note/note_item_color';
+
+
 
 
 class NoteColorPicker extends StatelessWidget {

@@ -6,9 +6,9 @@ import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_states.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
-import 'package:notes_app/widgets/custom_buttom.dart';
-import 'package:notes_app/widgets/custom_text_field.dart';
-import 'package:notes_app/widgets/note_color_picker.dart';
+import 'package:notes_app/widgets/common/custom_buttom.dart';
+import 'package:notes_app/widgets/common/custom_text_field.dart';
+import 'package:notes_app/widgets/note/note_color_picker.dart';
 
 class AddNoteBottomSheet extends StatefulWidget {
   const AddNoteBottomSheet({super.key});
@@ -54,6 +54,12 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
                 CustomTextField(
                   labelText: 'Note Title',
                   onSaved: (value) => title = value,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter Note Title';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 20),
                 CustomTextField(

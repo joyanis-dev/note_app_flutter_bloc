@@ -36,7 +36,7 @@ class NoteItem extends StatelessWidget {
             children: [
               ListTile(
                 contentPadding: EdgeInsets.all(0),
-                title: Text(note.title, style: AppTextStyles.heading),
+                title: Text(note.title, style: AppTextStyles.heading,),
                 subtitle: Padding(
                   padding: const EdgeInsets.only(top: 16),
                   child: Text(note.content, style: AppTextStyles.bodyText),

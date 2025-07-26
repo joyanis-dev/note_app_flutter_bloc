@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/constants/app_constants.dart';
 import 'package:notes_app/models/note_model.dart';
-import 'package:notes_app/widgets/custom_text_field.dart';
-import 'package:notes_app/widgets/note_color_picker.dart';
+import 'package:notes_app/widgets/common/custom_text_field.dart';
+import 'package:notes_app/widgets/note/note_color_picker.dart';
+
 
 class EditingBody extends StatefulWidget {
   const EditingBody({super.key, required this.note});

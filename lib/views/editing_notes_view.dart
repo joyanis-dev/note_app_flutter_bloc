@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
-import 'package:notes_app/widgets/custom_appbar.dart';
-import 'package:notes_app/widgets/custom_icon.dart';
-import 'package:notes_app/widgets/editing_body.dart';
+import 'package:notes_app/widgets/common/custom_appbar.dart';
+import 'package:notes_app/widgets/common/custom_icon.dart';
+import 'package:notes_app/widgets/note/editing_body.dart';
 
 class EditingNotesView extends StatefulWidget {
   const EditingNotesView({super.key, required this.note});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
-import 'package:notes_app/widgets/custom_appbar.dart';
-import 'package:notes_app/widgets/custom_icon.dart';
-import 'package:notes_app/widgets/search_body.dart';
+import 'package:notes_app/widgets/common/custom_appbar.dart';
+import 'package:notes_app/widgets/common/custom_icon.dart';
+import 'package:notes_app/widgets/search/search_body.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
