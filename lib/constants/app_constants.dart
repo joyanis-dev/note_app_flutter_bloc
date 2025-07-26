@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const Color kPrimaryColor = Color(0xFF03DAC6);
+const Color kPrimaryColor = Color(0xFF6d62fe);
 const String kboxName = 'notes';
 const List<Color> noteColors = [
   Color(0xFFC0D6DF), // oyster bay

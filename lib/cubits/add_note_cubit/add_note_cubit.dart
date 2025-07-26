@@ -15,13 +15,6 @@ class AddNoteCubit extends Cubit<AddNoteState> {
       emit(AddNoteError(e.toString()));
     }
   }
-  void editNote(NoteModel note) async {
-  try {
-    await note.save(); 
-    emit(AddNoteSuccess());
-  } catch (e) {
-    emit(AddNoteError(e.toString()));
-  }
-}
+  
 
 }
