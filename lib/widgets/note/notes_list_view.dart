@@ -21,15 +21,12 @@ class NotesListView extends StatelessWidget {
               message: 'Create Your First Note!',
             );
           }
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
-            child: ListView.builder(
-              itemCount: notes.length,
-              itemBuilder: (context, index) {
-                final note = notes[index];
-                return NoteItem(note: note);
-              },
-            ),
+          return ListView.builder(
+            itemCount: notes.length,
+            itemBuilder: (context, index) {
+              final note = notes[index];
+              return NoteItem(note: note);
+            },
           );
         }  else {
           return const Center(child: CircularProgressIndicator());

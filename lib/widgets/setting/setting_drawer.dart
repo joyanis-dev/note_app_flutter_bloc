@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/constants/app_constants.dart';
 import 'package:notes_app/cubits/theme_cubit/theme_cubit.dart';
+import 'package:notes_app/widgets/setting/listtile_widget.dart';
 
 class SettingDrawer extends StatelessWidget {
   const SettingDrawer({super.key});
@@ -21,17 +22,18 @@ class SettingDrawer extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 24),
             ),
           ),
-          ListTile(
-            leading: const Icon(Icons.color_lens),
-            title: const Text('Change Theme'),
+          ListTileWidget(
+            icon: Icons.color_lens,
+            title: 'Change Theme',
             onTap: () {
-              Navigator.of(context).pop();
+             
               context.read<ThemeCubit>().toggleTheme();
             },
           ),
-          ListTile(
-            leading: Icon(Icons.info),
-            title: Text('About App'),
+
+          ListTileWidget(
+            icon: Icons.info,
+            title: 'About App',
             onTap: () {},
           ),
           Divider(
@@ -58,3 +60,4 @@ class SettingDrawer extends StatelessWidget {
     );
   }
 }
+
